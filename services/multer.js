@@ -9,7 +9,7 @@ const storage = new GridFsStorage({
   url: keys.MONGO_URI,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
-      //this create a unique 16 character string
+      //this creates a unique 16 character string
       crypto.randomBytes(16, (err, buf) => {
         if (err) {
           return reject(err);

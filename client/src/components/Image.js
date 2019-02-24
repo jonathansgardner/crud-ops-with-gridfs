@@ -53,7 +53,7 @@ class Image extends React.Component {
       >
         <figure>
           <img
-            src={ `http://localhost:5000/files/read/${ this.props.file.filename }` }
+            src={ `/files/read/${ this.props.file.filename }` }
             alt={ this.props.file.metadata.alt }
           />
           <figcaption>{ this.props.file.metadata.caption }</figcaption>

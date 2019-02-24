@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+#container {
+  width: 80%;
+  min-width: 352px;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  margin: 1em 0 0;
+  color: #000;
+  font-size: 1.5rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+#app-description {
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,42 @@
+#file-upload-form {
+  display: flex;
+  width: 100%;
+  max-width: 450px;
+  height: 2rem;
+  margin: 0.5rem 0 1rem;
+  font-size: 14px;
+}
+
+#file-upload-form input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+#file-upload-form label[for="fileInput"] {
+  width: 70%;
+  padding: 8px;
+  border: solid #ccc;
+  border-width: 1px 0 1px 1px;
+  line-height: 1em;
+}
+
+#file-upload-form input[type="submit"] {
+  width: 30%;
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+#file-upload-form input[type="submit"]:disabled {
+  opacity: 0.9;
+  cursor: initial;
+}
+
+#file-upload-form input[type="file"] + label {
+	cursor: pointer;
+}

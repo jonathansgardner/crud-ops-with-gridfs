@@ -1,0 +1,72 @@
+.screen-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 352px;
+  max-width: 800px;
+  padding: 1rem 2rem;
+  margin: auto;
+  background-color: #fff;
+}
+
+h2.modal-header {
+  margin: 1em 0;
+}
+
+.modal-window form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-window label {
+  margin: 0.5rem 0;
+}
+
+.modal-window input,
+.modal-window textarea  {
+  margin-bottom: 1rem;
+}
+
+.modal-window input[type="text"],
+.modal-window textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.modal-window input[type="text"] {
+  line-height: 1em;
+}
+
+.modal-window textarea {
+  line-height: 1.4em;
+  resize: none;
+}
+
+.modal-window textarea::placeholder {
+  font-size: 14px;
+}
+
+.modal-window input[type="submit"] {
+  display: block;
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

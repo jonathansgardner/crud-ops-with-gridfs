@@ -26,10 +26,13 @@
 
 #file-upload-form input[type="submit"] {
   width: 30%;
+  padding: 1px 0 2px
+  border: solid #ccc;
+  border-width: 1px 0 1px 1px;
+  cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
   font: inherit;
-  cursor: pointer;
 }
 
 #file-upload-form input[type="submit"]:disabled {

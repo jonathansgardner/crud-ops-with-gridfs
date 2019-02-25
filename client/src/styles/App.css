@@ -27,3 +27,8 @@ h2 {
 p {
   max-width: 450px;
 }
+
+input,
+textarea {
+  border-radius: none;
+}

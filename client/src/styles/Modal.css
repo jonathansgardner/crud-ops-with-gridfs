@@ -16,8 +16,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 352px;
   max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
   padding: 1rem 2rem;
   margin: auto;
   background-color: #fff;

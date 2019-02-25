@@ -2,4 +2,4 @@
 const mongoose = require('mongoose');
 const conn = mongoose.connection;
 
-conn.dropDatabase();
+conn.db.dropDatabase();

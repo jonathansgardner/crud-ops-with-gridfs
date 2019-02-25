@@ -14,7 +14,7 @@ class ImageContainer extends React.Component {
       return <p>No images to display</p>;
     }
 
-    return this.props.files.map( (file, i ) => {
+    return this.props.files.map( ( file, i ) => {
       return (
         <Image file={ file } key={ i }/>
       )

@@ -3,7 +3,9 @@ const router = express.Router();
 const upload = require('../services/multer');
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
-const conn = require('../db');
+
+// Reference Mongo connection
+const conn = mongoose.connection;
 
 // Initialize gfs
 let gfs;
@@ -26,14 +28,11 @@ router.get('/', (req, res) => {
 // @desc Displays a specific files in json format
 router.get('/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-    // Check if there's a file
     if (!file || file.length === 0) {
       return res.status(404).json({
         err: 'That file doesn\'t exist'
       });
     }
-
-    // If file exists
     return res.json(file);
   });
 });
@@ -52,6 +51,11 @@ router.post('/upload', upload.single('file'), (req, res) => {
 // @desc Updates the metadata of the file
 router.patch('/update/:filename', (req, res) => {
   gfs.files.update({ filename: req.params.filename }, { $set: { metadata: {caption: req.body.caption, alt: req.body.alt } } }, (err, file) => {
+    if (err) {
+      return res.status(404).json({
+        err: `${req.params.filename} was not updated`
+      });
+    }
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
       return res.json(file)
     });
@@ -75,22 +79,19 @@ router.delete('/delete/:filename', (req, res) => {
 // @desc Displays a specific file
 router.get('/read/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-    // Check if there's a file
     if (!file || file.length === 0) {
       return res.status(404).json({
-        err: 'That file doesn\'t exist'
+        err: `${req.params.filename} was not found`
       });
     }
-
-    // If file exists...
-    // Check if it's an image
-    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-      // Read Grid FS output to browser
+    // Check if file is an image
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png' || file.contentType === 'image/gif') {
+      // If so, ead Grid FS output to browser
       const readstream = gfs.createReadStream(file.filename);
       readstream.pipe(res);
     } else {
       res.status(404).json({
-        err: 'Not an image'
+        err: `${req.params.filename} is not an image`
       });
     }
   });

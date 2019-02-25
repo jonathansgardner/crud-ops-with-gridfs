@@ -21,7 +21,6 @@ export const uploadFile = formData => async dispatch => {
 
 export const updateFile = (filename, data) => async dispatch => {
   const response = await files.patch(`/update/${ filename }`, data);
-  console.log(response.data);
 
   dispatch({
     type: UPDATE_FILE,

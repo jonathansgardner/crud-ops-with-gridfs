@@ -42,7 +42,7 @@ class Form extends React.Component {
       this.updateLabel( file );
     } else {
       alert(
-        `Only the following image file formats are supported:\n${ fileTypes.join( ", ") }\n\nPlease select a new file and try again.`
+        `Only the following image file formats are supported:\n${ fileTypes.join( ", " ) }\n\nPlease select a new file and try again.`
       );
       this.setState({
         inputKey: Date.now(),

@@ -9,7 +9,7 @@ const storage = new GridFsStorage({
   url: keys.MONGO_URI,
   file: (req, file) => {
     return new Promise((resolve, reject) => {
-      //this creates a unique 16 character string
+      // Create a unique 16 character filname
       crypto.randomBytes(16, (err, buf) => {
         if (err) {
           return reject(err);
@@ -21,14 +21,6 @@ const storage = new GridFsStorage({
         };
         resolve(fileInfo);
       });
-      /* To manually choose a filename - can remove crypto from require statements
-      const filename = '[insert whatever]' + path.extname(file.originalname);
-      const fileInfo = {
-        filename: filename,
-        bucketName: 'uploads' //should match gfs.collection
-      };
-      resolve(fileInfo);
-      */
     });
   }
 });

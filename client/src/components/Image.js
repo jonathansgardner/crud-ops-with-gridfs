@@ -15,22 +15,18 @@ class Image extends React.Component {
     this.setState({ imageUpdateToggle: !this.state.imageUpdateToggle });
   }
 
-  handleAltInputChange = (event) => {
-    this.setState({
-      alt: event.target.value
-    })
+  handleAltInputChange = event => {
+    this.setState({ alt: event.target.value });
   }
 
-  handleCaptionInputChange = (event) => {
-    this.setState({
-      caption: event.target.value
-    })
+  handleCaptionInputChange = event => {
+    this.setState({ caption: event.target.value });
   }
 
-  handleImageUpdateFormSubmit = (event) => {
+  handleImageUpdateFormSubmit = event => {
     event.preventDefault();
-    const data = { caption: this.state.caption, alt: this.state.alt }
-    this.props.updateFile(this.props.file.filename, data);
+    const data = { caption: this.state.caption, alt: this.state.alt };
+    this.props.updateFile( this.props.file.filename, data );
     this.toggleImageUpdateModal();
   }
 
@@ -48,14 +44,9 @@ class Image extends React.Component {
 
   render() {
     return (
-      <div
-        id="image-wrapper"
-      >
+      <div>
         <figure>
-          <img
-            src={ `/files/read/${ this.props.file.filename }` }
-            alt={ this.props.file.metadata.alt }
-          />
+          <img src={ `/files/read/${ this.props.file.filename }` } alt={ this.props.file.metadata.alt } />
           <figcaption>{ this.props.file.metadata.caption }</figcaption>
           <div className="image-options">
             <small className="option" onClick={ this.toggleImageUpdateModal }>edit</small>

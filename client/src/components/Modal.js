@@ -10,7 +10,7 @@ const Modal = props => {
         <div className="modal-content">{ props.content }</div>
       </div>
     </div>,
-    document.querySelector('#modal')
+    document.querySelector( '#modal' )
   );
 }
 
